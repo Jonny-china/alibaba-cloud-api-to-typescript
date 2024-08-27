@@ -137,7 +137,7 @@ export class Schema2Interface {
         .join(' | ')}`;
     }
     if (this.typeNames.has(name)) {
-      return `\${${name}}`;
+      return `\`\${${name}}\``;
     }
     this.typeNames.add(name);
     let text = '';
@@ -159,7 +159,7 @@ export class Schema2Interface {
     });
     text += `\n}\n`;
     this.enums.unshift(text);
-    return `\${${name}}`;
+    return `\`\${${name}}\``;
   }
 
   private property2Type(name: string, schema: Schema) {

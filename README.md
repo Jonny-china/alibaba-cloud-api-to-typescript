@@ -4,15 +4,17 @@
 
 ## 特性
 
-- 快速将API的参数生成Typescript类型代码。
-- 字段支持注释说明。
+- 快速将API的参数生成Typescript类型代码
+- 字段支持注释说明
+- 支持搜索整个阿里云OpenAPI数据
+- 支持在特定产品版本下的选择OpenAPI
 
 ## 使用方法
 将以下命令输入到命令面板中执行：
 ```
-Alibaba Cloud OpenAPI To Typescript
+Alibaba Cloud API To Typescript
 ```
-然后输入API名称可搜素API，点击对应的接口名称，即可生成对应的接口类型代码。
+然后输入你想要转换Typescript类型的API名称，选中对应产品和版本的API，即可生成对应的接口类型代码。
 
 ![使用说明](images/guide.gif)
 
@@ -31,3 +33,6 @@ Alibaba Cloud OpenAPI To Typescript
 
 ### 1.0.0
 初始版本。
+
+### 1.0.1
+fix: 修复生成枚举类型时，给属性赋值枚举值的格式错误

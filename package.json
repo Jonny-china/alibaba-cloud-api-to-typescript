@@ -1,8 +1,8 @@
 {
   "name": "alibaba-cloud-api-to-typescript",
-  "displayName": "Alibaba Cloud OpenAPI To Typescript",
+  "displayName": "Alibaba Cloud API To Typescript",
   "description": "将阿里云OpenAPI的传参和响应参数转换为TypeScript的工具。",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "email": "c1043870470@gmail.com",
     "name": "JonnyChen",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "github",
-    "url": "https://github.com/Jonny-china/alibaba-cloud-api-to-typescript"
+    "url": "https://github.com/Jonny-china/vscode-alibaba-cloud-api-to-typescript"
   },
   "publisher": "JonnyChen",
   "engines": {
@@ -29,7 +29,7 @@
     "commands": [
       {
         "command": "alibaba-cloud-api-to-typescript.AlibabaCloudAPIToTypescript",
-        "title": "Alibaba Cloud OpenAPI To Typescript"
+        "title": "Alibaba Cloud API To Typescript"
       }
     ],
     "configuration": {
