@@ -1,0 +1,130 @@
+{
+  "name": "alibaba-cloud-api-to-typescript",
+  "displayName": "Alibaba Cloud OpenAPI To Typescript",
+  "description": "将阿里云OpenAPI的传参和响应参数转换为TypeScript的工具。",
+  "version": "1.0.0",
+  "author": {
+    "email": "c1043870470@gmail.com",
+    "name": "JonnyChen",
+    "url": "https://github.com/Jonny-china/"
+  },
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/Jonny-china/alibaba-cloud-api-to-typescript"
+  },
+  "publisher": "JonnyChen",
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "categories": [
+    "Snippets",
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:alibaba-cloud-api-to-typescript.AlibabaCloudAPIToTypescript"
+  ],
+  "icon": "images/logo.png",
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "alibaba-cloud-api-to-typescript.AlibabaCloudAPIToTypescript",
+        "title": "Alibaba Cloud OpenAPI To Typescript"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Alibaba Cloud API To Typescript Configuration",
+      "properties": {
+        "alibaba-cloud-api-to-typescript.scope.produce": {
+          "type": "string",
+          "default": "",
+          "description": "获取对应产品下的 OpenAPI 数据，同时需要添加下方版本(Version)字段"
+        },
+        "alibaba-cloud-api-to-typescript.scope.version": {
+          "type": "string",
+          "default": "",
+          "description": "获取对应产品版本下的 OpenAPI 数据，同时需要添加上方产品Code(Product)字段"
+        },
+        "alibaba-cloud-api-to-typescript.useExport": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否使用 export interface，导出接口"
+        },
+        "alibaba-cloud-api-to-typescript.comments.disabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "禁止生成字段注释"
+        },
+        "alibaba-cloud-api-to-typescript.comments.insertExample": {
+          "type": "boolean",
+          "default": false,
+          "description": "字段注释中，是否插入JS Docs的 @example 示例"
+        },
+        "alibaba-cloud-api-to-typescript.propertyFormat": {
+          "type": "string",
+          "default": "auto",
+          "description": "字段名称格式化，首字母小写还是大写。",
+          "enum": [
+            "auto",
+            "lowerFirst",
+            "upperFirst"
+          ],
+          "enumDescriptions": [
+            "自动，根据阿里云OpenAPI文档中字段名称的格式显示不做任何转换（目前默认是首字母大写）",
+            "首字母小写",
+            "首字母大写"
+          ]
+        },
+        "alibaba-cloud-api-to-typescript.interfaceNamePrefix": {
+          "type": "string",
+          "default": "",
+          "description": "interface 名称前缀（部分项目需要在接口名称前加`I`）"
+        },
+        "alibaba-cloud-api-to-typescript.unionToEnum": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否将联合类型生成枚举，如`CallType: 'INBOUND' | 'OUTBOUND' | ...`生成枚举类型 `enum CallTypeEnum { INBOUND='INBOUND',OUTBOUND='OUTBOUND', ... }`"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.4.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@eslint/js": "^9.9.1",
+    "@types/eslint__js": "^8.42.3",
+    "@types/lodash": "^4.17.7",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.92.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.0",
+    "eslint": "^9.9.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.9.0",
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.9",
+    "prettier": "3.3.3",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^8.2.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix"
+    ]
+  }
+}
