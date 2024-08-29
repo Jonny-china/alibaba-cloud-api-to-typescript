@@ -36,3 +36,6 @@ Alibaba Cloud API To Typescript
 
 ### 1.0.1
 fix: 修复生成枚举类型时，给属性赋值枚举值的格式错误
+
+### 1.0.2
+fix: 修复当字段描述为空时生成空的注释符

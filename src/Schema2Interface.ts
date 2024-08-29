@@ -164,29 +164,33 @@ export class Schema2Interface {
 
   private property2Type(name: string, schema: Schema) {
     let text = '';
+    let commentContent = '';
     if (!this.commentsDisabled) {
-      text += `\n  /**\n`;
       if (schema.description) {
         const descList = schema.description
           .replace(/\(~~([\d]+)~~\)/g, `(https://help.aliyun.com/document_detail/$1.html)`)
           .split('\n');
         descList.forEach((item) => {
-          text += `   * ${item.trim()}\n`;
+          commentContent += `   * ${item.trim()}\n`;
         });
       }
       if (schema.deprecated) {
-        text += `   *\n`;
-        text += `   * @deprecated\n`;
+        commentContent += `   *\n`;
+        commentContent += `   * @deprecated\n`;
       }
       if (this.commentsInsertExample && schema.example) {
-        text += `   *\n`;
-        text += `   * @example\n`;
+        commentContent += `   *\n`;
+        commentContent += `   * @example\n`;
         const exampleList = schema.example.split('\n');
         exampleList.forEach((item) => {
-          text += `   * ${item}\n`;
+          commentContent += `   * ${item}\n`;
         });
       }
-      text += `   */`;
+      if (commentContent) {
+        text += `\n  /**\n`;
+        text += commentContent;
+        text += `   */`;
+      }
     }
     let propertyType = 'any';
     switch (schema.type) {

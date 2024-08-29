@@ -2,7 +2,7 @@
   "name": "alibaba-cloud-api-to-typescript",
   "displayName": "Alibaba Cloud API To Typescript",
   "description": "将阿里云OpenAPI的传参和响应参数转换为TypeScript的工具。",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": {
     "email": "c1043870470@gmail.com",
     "name": "JonnyChen",
